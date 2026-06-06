@@ -18,6 +18,10 @@ jobs:
         
     - name: Install Project Dependencies
       run: npm install
+
+    # 🚀 NEW STEP: Explicitly install Playwright core module dependencies in CI
+    - name: Install Playwright Library Package
+      run: npm install -D @playwright/test
       
     - name: Install Headless Playwright Browsers
       run: npx playwright install --with-deps
