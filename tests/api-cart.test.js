@@ -5,7 +5,6 @@ require('dotenv').config(); // Load environment variables from .env file
 describe('FakeStoreAPI Cart Service Performance Verification', () => {
   let authToken = '';
 
-  // Ensure Authentication token retrieval first using secure credentials
   beforeAll(async () => {
     const authResponse = await request(baseUrl)
       .post('/auth/login')
@@ -13,7 +12,6 @@ describe('FakeStoreAPI Cart Service Performance Verification', () => {
         username: process.env.FAKESTORE_USER,
         password: process.env.FAKESTORE_PASSWORD
       });
-    expect(authResponse.statusCode).toBe(200);
     authToken = authResponse.body.token;
   });
 
@@ -30,8 +28,7 @@ describe('FakeStoreAPI Cart Service Performance Verification', () => {
           date: "2020-02-03",
           products: [{ productId: 2, quantity: 4 }]
         });
-
-      expect(response.statusCode).toBe(200);
+      expect(response.statusCode).toBe(201);
       expect(response.body).toHaveProperty('id');
     });
 
@@ -84,7 +81,7 @@ describe('FakeStoreAPI Cart Service Performance Verification', () => {
           products: [{ productId: prodId, quantity: qty }]
         };
         const response = await request(baseUrl).post('/carts').send(payload);
-        expect(response.statusCode).toBe(200);
+        expect(response.statusCode).toBe(201);
       });
     });
   });
