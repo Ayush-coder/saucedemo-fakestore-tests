@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "jest",
+    "test:ui": "playwright test",
     "start": "node server.js"
   },
   "author": "",
