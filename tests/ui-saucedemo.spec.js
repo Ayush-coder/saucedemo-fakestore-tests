@@ -1,5 +1,5 @@
-const { test, expect } = require('@playwright/test');
-const { LoginPage } = require('../pages/LoginPage');
+import { test, expect } from '@playwright/test';
+import { LoginPage } from '../pages/LoginPage';
 require('dotenv').config(); // Load environment variables from .env file
 
 test.describe('SauceDemo E-Commerce Verification Pipeline', () => {
