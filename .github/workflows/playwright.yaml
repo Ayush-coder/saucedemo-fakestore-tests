@@ -21,12 +21,12 @@ jobs:
       
     - name: Install Headless Playwright Browsers
       run: npx playwright install --with-deps
+
+    - name: Execute UI Framework Suite (Playwright)
+      run: npx playwright test
       
     - name: Execute API Framework Suite (Jest)
       run: npm test
-      
-    - name: Execute UI Framework Suite (Playwright)
-      run: npx playwright test
       
     - name: Archive Test Execution Artifacts
       if: always()
