@@ -19,15 +19,15 @@ jobs:
     - name: Install Project Dependencies
       run: npm install
 
-    # 🚀 NEW STEP: Explicitly install Playwright core module dependencies in CI
     - name: Install Playwright Library Package
       run: npm install -D @playwright/test
       
     - name: Install Headless Playwright Browsers
       run: npx playwright install --with-deps
 
+    # 🚀 EXPLICITLY SEPARATED RUN PATHS
     - name: Execute UI Framework Suite (Playwright)
-      run: npx playwright test
+      run: npx playwright test tests/ui-saucedemo.spec.js
       
     - name: Execute API Framework Suite (Jest)
       run: npm test
