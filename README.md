@@ -21,9 +21,12 @@
 ### 1. Initialize Environment Variables
 Create a `.env` file in the root directory and populate it with the required service test accounts:
 ```ini
+# SauceDemo UI Test Credentials
 SAUCEDEMO_USER=standard_user
 SAUCEDEMO_LOCKED_USER=locked_out_user
 SAUCEDEMO_PASSWORD=secret_sauce
+
+# FakeStoreAPI Test Credentials
 FAKESTORE_USER=mor_2314
 FAKESTORE_PASSWORD=83r5^_`
 ```
