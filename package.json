@@ -4,8 +4,8 @@
   "description": "FakeStoreAPI is a free online REST API that provides you fake e-commerce JSON data",
   "main": "server.js",
   "scripts": {
-    "test": "jest",
-    "test:ui": "playwright test",
+    "test": "jest tests/api-cart.test.js",
+    "test:ui": "npx playwright test tests/ui-saucedemo.spec.js",
     "start": "node server.js"
   },
   "author": "",
