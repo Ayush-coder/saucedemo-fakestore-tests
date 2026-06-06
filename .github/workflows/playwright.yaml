@@ -1,0 +1,39 @@
+name: Core Engineering Automation Pipeline
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Node.js Environment
+      uses: actions/setup-node@v4
+      with:
+        node-version: 18
+        
+    - name: Install Project Dependencies
+      run: npm ci
+      
+    - name: Install Headless Playwright Browsers
+      run: npx playwright install --with-deps
+      
+    - name: Execute API Framework Suite (Jest)
+      run: npm test
+      
+    - name: Execute UI Framework Suite (Playwright)
+      run: npx playwright test
+      
+    - name: Archive Test Execution Artifacts
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-execution-reports
+        path: |
+          playwright-report/
+          junit.xml
+        retention-days: 30
