@@ -1,4 +1,4 @@
-name: Core Engineering Automation Pipeline
+name: Saucedemo Test Suite
 on:
   push:
     branches: [ main, master ]
